@@ -1,0 +1,44 @@
+<%- include('../partials/header') %>
+
+    <h1>📚 <%= pageTitle %></h1>
+
+    <div class="form-box">
+        <h3>Tambah Buku Baru</h3>
+        <form action="/tambah-buku" method="POST">
+            
+            <label>Judul Buku:</label>
+            <input type="text" name="judulBuku" required>
+            
+            <label>Nama Pengarang:</label>
+            <input type="text" name="namaPengarang" required>
+
+            <label>Tahun Terbit:</label>
+            <input type="number" name="tahunTerbit" required>
+
+            <label>Kategori:</label>
+            <select name="kategori" required>
+                <option value="Fiksi">Fiksi</option>
+                <option value="Non-Fiksi">Non-Fiksi</option>
+                <option value="Sains">Sains</option>
+                <option value="Sejarah">Sejarah</option>
+            </select>
+            
+            <button type="submit">Simpan Buku</button>
+        </form>
+    </div>
+
+    <h3>Daftar Koleksi Saat Ini:</h3>
+    <ul>
+        <% if (bukuList.length > 0) { %>
+            <% bukuList.forEach(buku => { %>
+                <li>
+                    <strong><%= buku.judul %></strong> - karya <em><%= buku.pengarang %></em> 
+                    (Terbit: <%= buku.tahun %>, Kategori: <%= buku.kategori %>)
+                </li>
+            <% }) %>
+        <% } else { %>
+            <li>Belum ada buku di perpustakaan.</li>
+        <% } %>
+    </ul>
+
+<%- include('../partials/footer') %>

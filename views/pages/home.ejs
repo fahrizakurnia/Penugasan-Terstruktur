@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+    <h1><%= pageTitle %></h1>
+    
+    <div style="background: #e9ecef; padding: 20px; border-radius: 5px;">
+        <!-- Memanggil data dinamis dari controller -->
+        <h2><%= pesanSambutan %></h2>
+        <p>Waktu server saat ini: <strong><%= waktuAkses %></strong></p>
+        <p>Gunakan menu di atas untuk menavigasi aplikasi.</p>
+    </div>
+
+<%- include('../partials/footer') %>
